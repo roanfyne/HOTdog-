@@ -34,7 +34,7 @@ function uploadFile() {
             fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/dispatches`, {
                 method: "POST",
                 headers: {
-                    "Authorization": `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`,
+                    "Authorization": `token ${token}`,
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
@@ -56,7 +56,7 @@ function loadFiles() {
     fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/uploads`, {
         method: "GET",
         headers: {
-            "Authorization": `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`
+            "Authorization": `token ${token}`
         }
     })
     .then(response => response.json())
@@ -77,7 +77,7 @@ function searchFiles() {
     fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/uploads`, {
         method: "GET",
         headers: {
-            "Authorization": `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`
+            "Authorization": `token ${token}`
         }
     })
     .then(response => response.json())
