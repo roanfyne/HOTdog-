@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTdog+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h1>HOTdog+</h1>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="verifyPassword()">Enter</button>
+    </div>
+    <div id="main-screen" style="display: none;">
+        <h1>HOTdog+</h1>
+        <input type="file" id="upload" accept="audio/mp3">
+        <button onclick="uploadFile()">Upload</button>
+        <input type="text" id="search" placeholder="Search MP3 files">
+        <button onclick="searchFiles()">Search</button>
+        <div id="file-list"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

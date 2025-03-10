@@ -1,0 +1,32 @@
+name: Upload MP3 Files
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Base64 encoded file content'
+        required: true
+      filename:
+        description: 'Name of the file'
+        required: true
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Decode and save the file
+      run: |
+        echo "${{ github.event.inputs.file }}" | base64 -d > uploads/${{ github.event.inputs.filename }}
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add uploads/${{ github.event.inputs.filename }}
+        git commit -m "Upload ${{ github.event.inputs.filename }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
