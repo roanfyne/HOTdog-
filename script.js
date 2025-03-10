@@ -1,4 +1,7 @@
 const password = "hotcats+dogs";
+const repoOwner = "YOUR_GITHUB_USERNAME"; // Replace with your GitHub username
+const repoName = "YOUR_REPOSITORY_NAME"; // Replace with your repository name
+const token = "Cats69"; // Replace with your actual PAT securely
 
 function verifyPassword() {
     const userPassword = document.getElementById('password').value;
@@ -28,7 +31,7 @@ function uploadFile() {
                 }
             };
 
-            fetch(`https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/dispatches`, {
+            fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/dispatches`, {
                 method: "POST",
                 headers: {
                     "Authorization": `token Cats69`,
@@ -50,7 +53,7 @@ function uploadFile() {
 }
 
 function loadFiles() {
-    fetch(`https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/contents/uploads`, {
+    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/uploads`, {
         method: "GET",
         headers: {
             "Authorization": `token Cats69`
@@ -71,7 +74,7 @@ function loadFiles() {
 
 function searchFiles() {
     const query = document.getElementById('search').value.toLowerCase();
-    fetch(`https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/contents/uploads`, {
+    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/uploads`, {
         method: "GET",
         headers: {
             "Authorization": `token Cats69`
